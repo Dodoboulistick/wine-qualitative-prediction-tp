@@ -1,9 +1,8 @@
 from domain.wine.models.Wine import Wine
 
 #TODO: Use the model to predict the quality of the wine
-async def predict_quality(wine: Wine) -> int:
-    print(wine)
-    return 0
+async def predict_quality(wine: Wine) -> str:
+    return  ''
 
 #TODO: Use the model to predict the best wine
 async def predict_best_wine() -> Wine:
@@ -19,5 +18,5 @@ async def predict_best_wine() -> Wine:
         pH=3.3,
         sulphates=0.49,
         alcohol=9.5,
-        quality=6,
+        quality='bad',
     )
