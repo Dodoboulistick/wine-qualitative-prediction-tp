@@ -7,8 +7,8 @@ router = APIRouter(
 )
 
 @router.get("/")
-async def get_model() -> Model:
-    return {"model": get_serialized_model()}
+async def get_model() -> dict:
+    return {"model": await get_serialized_model()}
 
 @router.get("/description")
 async def get_model_info() -> dict:
@@ -16,8 +16,8 @@ async def get_model_info() -> dict:
 
 @router.put("/")
 async def update_model(id: int) -> None:
-    return add_wine_to_model(id)
+    return await add_wine_to_model(id)
 
 @router.post("/retrain")
 async def retrain_model() -> None:
-    return retrain()
+    return await retrain()
