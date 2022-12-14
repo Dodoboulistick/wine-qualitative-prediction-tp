@@ -6,17 +6,13 @@ router = APIRouter(
     prefix="/api/model"
 )
 
-model = Model(name="RF Classifier", version="1.0", model_path="datasource/wine_quality.pkl", data_path="datasource/Wines.csv", metrics_path="datasource/model_metrics.json", parameters={'n_estimators': 300})
-
-
-
 @router.get("/")
 async def get_model() -> Model:
-    return {"model": "model"}
+    return {"model": get_serialized_model()}
 
 @router.get("/description")
 async def get_model_info() -> dict:
-    return get_attributes()
+    return {"Model_informations" : await get_attributes()}
 
 @router.put("/")
 async def update_model(id: int) -> None:
