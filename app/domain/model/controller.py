@@ -23,6 +23,9 @@ async def get_attributes() -> dict:
             "parameters": model.parameters,
             "metrics": model.metrics,}
 
+# TODO: add the wine to the csv file, 
+# because adding the wine to the model is basically adding the wine to the csv file 
+# then retrain the model
 async def add_wine_to_model(id: int):
     pass
 
