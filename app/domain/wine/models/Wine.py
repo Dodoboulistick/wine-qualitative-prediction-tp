@@ -13,5 +13,5 @@ class Wine(BaseModel):
     pH: float
     sulphates: float
     alcohol: float
-    quality: Union[int,None]
+    quality: Union[str,None]
     Id: int
