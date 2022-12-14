@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from domain.model.models.Model import Model
-from domain.model.controller import get_serialized_model, get_attributes, add_whine_to_model, retrain
+from domain.model.controller import get_serialized_model, get_attributes, add_wine_to_model, retrain
 
 router = APIRouter(
     prefix="/model"
@@ -16,7 +16,7 @@ async def get_model_info() -> Model:
 
 @router.put("/")
 async def update_model(id: int) -> None:
-    return add_whine_to_model(id)
+    return add_wine_to_model(id)
 
 @router.post("/retrain")
 async def retrain_model() -> None:
