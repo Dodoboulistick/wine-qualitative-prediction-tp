@@ -3,7 +3,7 @@ from domain.predict.controller import predict_quality, predict_best_wine
 from domain.wine.models.Wine import Wine
 
 router = APIRouter(
-    prefix="/predict"
+    prefix="/api/predict"
 )
 
 

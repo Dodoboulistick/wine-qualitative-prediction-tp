@@ -4,7 +4,7 @@ from domain.wine.controller import get_wine, get_all_wines, add_wine, remove_win
 from typing import Union
 
 router = APIRouter(
-    prefix="/wines"
+    prefix="/api/wines"
 )
 
 @router.get("/")
