@@ -26,6 +26,8 @@ async def get_attributes() -> dict:
 
 
 async def add_wine_to_model(wine : Wine)-> None:
+    """add a wine to the model 
+    """
     await add_wine(wine)
 
 async def retrain():
