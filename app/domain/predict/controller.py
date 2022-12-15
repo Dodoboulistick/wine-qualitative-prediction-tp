@@ -1,8 +1,12 @@
 from domain.wine.models.Wine import Wine
+from domain.model.controller import get_serialized_model
 
 #TODO: Use the model to predict the quality of the wine
-async def predict_quality(wine: Wine) -> str:
-    return  ''
+async def predict_wine_quality(wine : Wine) -> dict:
+    model = await get_serialized_model()
+    wine = wine.to_list()
+    quality = model.predict(wine)[0]
+    return {'wine_quality': quality}
 
 #TODO: Use the model to predict the best wine
 async def predict_best_wine() -> Wine:
