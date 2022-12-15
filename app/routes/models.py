@@ -8,7 +8,8 @@ router = APIRouter(
 
 @router.get("/")
 async def get_model() -> dict:
-    return {"model": await get_serialized_model()}
+    model = await get_serialized_model()
+    return {"model": model.model.__dict__}
 
 @router.get("/description")
 async def get_model_info() -> dict:
