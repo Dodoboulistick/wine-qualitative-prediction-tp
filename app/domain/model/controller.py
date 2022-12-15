@@ -1,8 +1,9 @@
 from .models.Model import Model
+from domain.wine.models.Wine import Wine
+from domain.wine.controller import add_wine
 
 
 
-#TODO: FIX THIS ENDPOINT/FIND A SOLUTION
 async def get_serialized_model() -> Model:
     """return the serialized model
     
@@ -23,11 +24,9 @@ async def get_attributes() -> dict:
             "parameters": model.parameters,
             "metrics": model.metrics,}
 
-# TODO: add the wine to the csv file, 
-# because adding the wine to the model is basically adding the wine to the csv file 
-# then retrain the model
-async def add_wine_to_model(id: int):
-    pass
+
+async def add_wine_to_model(wine : Wine)-> None:
+    await add_wine(wine)
 
 async def retrain():
     """get the model and retrain it with the new data
