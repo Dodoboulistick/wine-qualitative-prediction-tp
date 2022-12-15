@@ -2,7 +2,7 @@ from .models.Model import Model
 
 
 
-#TODO: Generate a MEGA/Onedrive link to download the model?
+#TODO: FIX THIS ENDPOINT/FIND A SOLUTION
 async def get_serialized_model() -> Model:
     """return the serialized model
     
