@@ -91,7 +91,7 @@ class Model():
             self.parameters = self.model.get_params()
             return self.parameters
     
-    def predict(self, wine : list) -> str:
+    def predict(self, wine) -> str:
         """ predict the quality of the wine
 
         Args:

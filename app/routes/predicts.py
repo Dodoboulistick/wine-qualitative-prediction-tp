@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from domain.predict.controller import predict_wine_quality, predict_best_wine
+from domain.predict.controller import predict_quality, predict_best_wine
 from domain.wine.models.Wine import Wine
 
 router = APIRouter(
@@ -13,5 +13,5 @@ async def get_best_wine() -> Wine:
 
 
 @router.post("/")
-async def predict_quality(wine: Wine) -> str:
-    return await predict_wine_quality(wine)
+async def get_quality(wine: Wine) -> int:
+    return await predict_quality(wine)
