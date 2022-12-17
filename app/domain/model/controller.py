@@ -25,10 +25,10 @@ async def get_attributes() -> dict:
             "metrics": model.metrics,}
 
 
-async def add_wine_to_model(wine : Wine)-> None:
+async def add_wine_to_model(wine : Wine)-> dict:
     """add a wine to the model 
     """
-    await add_wine(wine)
+    return await add_wine(wine)
 
 async def retrain():
     """get the model and retrain it with the new data

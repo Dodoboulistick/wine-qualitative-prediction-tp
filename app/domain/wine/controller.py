@@ -6,6 +6,11 @@ import csv
 app = FastAPI()
 
 async def get_all_wines() -> list:
+    """Read wines from csv datasource
+
+    Returns:
+        list: wines from datasource
+    """
     try:
         with open('datasource/Wines.csv', 'r') as f:
             wines = list(csv.DictReader(f, delimiter=','))
@@ -32,12 +37,29 @@ async def get_all_wines() -> list:
 
 
 async def get_wine(id: int) -> Union[Wine,None]:
+    """Read a wine from csv datasource
+    
+    Args:
+        id (int): the id of the wine to read
+        
+    Returns:
+        Union[Wine,None]: a Wine object with the given Id or None if not found
+    """
     wines = await get_all_wines()
     wine = list(filter(lambda wine: (wine.Id == id), wines))
     return wine[0] if wine else None
 
 
 async def add_wine(wine: Wine) -> dict :
+    """Add wine to csv datasource
+
+    Args:
+        wine (Wine): a Wine object (see domain.wine.models.Wine)
+
+    Returns:
+        dict: a message indicating success or failure
+    """
+    wine.Id = (await get_all_wines())[-1].Id + 1 if wine.Id is None else wine.Id
     if await get_wine(wine.Id):
         return {"error": "Wine with this Id already exists"}
     try:
@@ -50,6 +72,14 @@ async def add_wine(wine: Wine) -> dict :
 
 
 async def remove_wine(id: int) -> dict:
+    """Delete a wine from csv datasource
+
+    Args:
+        id (int): the id of the wine to delete
+
+    Returns:
+        dict: a message indicating success or failure
+    """
     wines = await get_all_wines()
     wine = await get_wine(id)
     if not wine:

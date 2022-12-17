@@ -6,7 +6,6 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import pandas as pd
 from imblearn.over_sampling import SMOTE
 
-#FIXME: Verify the class attributes for the model
 class Model():
     name: str
     model : RandomForestClassifier

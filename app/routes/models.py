@@ -10,16 +10,36 @@ router = APIRouter(
 
 @router.get("/")
 async def get_model() -> dict:
+    """Get the serialized model
+
+    Returns:
+        dict: the serialized model
+    """
     await get_serialized_model()
 
 @router.get("/description")
 async def get_model_info() -> dict:
-    return {"Model_informations" : await get_attributes()}
+    """Get the model information
+
+    Returns:
+        dict: the model information
+    """
+    return {"Model_information" : await get_attributes()}
 
 @router.put("/")
-async def update_model(wine : Wine) -> None:
+async def update_model(wine : Wine) -> dict:
+    """Update the model with a new wine
+
+    Args:
+        wine (Wine): a Wine object (see domain.wine.models.Wine)
+
+    Returns:
+        dict: a message indicating success or failure
+    """
     return await add_wine_to_model(wine)
 
 @router.post("/retrain")
 async def retrain_model() -> None:
+    """Retrain the model with the new data
+    """
     return await retrain()

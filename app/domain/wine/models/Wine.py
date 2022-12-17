@@ -2,6 +2,11 @@ from pydantic import BaseModel
 from typing import Union
 
 class Wine(BaseModel):
+    """A wine object
+
+    Args:
+        BaseModel: a pydantic model
+    """
     fixed_acidity: float
     volatile_acidity: float
     citric_acid: float
@@ -14,9 +19,14 @@ class Wine(BaseModel):
     sulphates: float
     alcohol: float
     quality: Union[str,None]
-    Id: int
+    Id: Union[int,None]
 
     def to_list(self) -> list:
+        """Convert a wine object to a list
+
+        Returns:
+            list: a list of wine attributes
+        """
         return [self.fixed_acidity, 
                 self.volatile_acidity, 
                 self.citric_acid, 
