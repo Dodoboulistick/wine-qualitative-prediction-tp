@@ -1,4 +1,5 @@
 from domain.wine.models.Wine import Wine
+from domain.wine.controller import get_all_wines
 from domain.model.controller import get_serialized_model
 
 async def predict_wine_quality(wine : Wine) -> dict:
@@ -7,19 +8,8 @@ async def predict_wine_quality(wine : Wine) -> dict:
     quality = model.predict(wine)[0]
     return {'wine_quality': quality}
 
-#TODO: Use the model to predict the best wine ! 
 async def predict_best_wine() -> Wine:
-    return Wine(
-        fixed_acidity=6.3,
-        volatile_acidity=0.3,
-        citric_acid=0.34,
-        residual_sugar=1.6,
-        chlorides=0.049,
-        free_sulfur_dioxide=14,
-        total_sulfur_dioxide=132,
-        density=0.994,
-        pH=3.3,
-        sulphates=0.49,
-        alcohol=9.5,
-        quality='bad',
-    )
+    wines = await get_all_wines()
+    ranked_wines = sorted(wines, key=lambda wine: int(wine.quality), reverse=True)
+    return ranked_wines[0]
+    

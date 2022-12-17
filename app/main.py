@@ -19,4 +19,4 @@ app.include_router(wines.router)
 
 @app.get("/")
 async def root():
-    return {"message": "Hello Bigger Applications!"}
+    return {"message": "Welcome to our WineApp API"}
