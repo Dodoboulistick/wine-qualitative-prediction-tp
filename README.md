@@ -41,5 +41,6 @@ The models used are:
     - The best wine is selected using the following criteria:
         - the wine is good (quality > 7)
         - the wine has the highest level of alcohol of all the good wines. We made this choice because the data analysis showed that the alcohol level is a good indicator of the quality of the wine. We can verify this assumption by looking at the correlation between the alcohol level and the quality on the following graph:
-        
-        ![alt text](app/datasource/importance.png)
+        <p align="center" width="100%">
+            <img src="app/datasource/importance.png">
+        </p>
