@@ -81,7 +81,7 @@ uvicorn main:app --reload
 ### Predictions
 -GET api/predict
     - Return the features of the best wine possible based on predefined criteria (see below)
-- POST api/predict
+-POST api/predict
     - Predict the quality of a given wine using the model
 
 
