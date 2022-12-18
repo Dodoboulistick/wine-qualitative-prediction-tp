@@ -1,5 +1,5 @@
 # DATA
-The dataset is composed of 1599 samples wine with 12 features each. The features are:
+The dataset is composed of 1153 samples wine with 12 features each. The features are:
 - fixed acidity
 - volatile acidity
 - citric acid
@@ -20,6 +20,71 @@ The models used are:
 
 
 # APP SETUP
+## Requirements
+- A version of Python 3.8 or higher
+- A version of pip 20.2 or higher
+
+## Setup
+- Clone the repository
+- Create a virtual environment with the following command:
+```
+virtualenv -p python3 venv
+```
+- Activate the virtual environment with the following command:
+```
+source venv/bin/activate
+```
+- Install the requirements with the following command:
+```
+pip install -r requirements.txt
+```
+
+# APP USAGE
+- Go to the app folder with the following command:
+```
+cd app
+```
+- Run the app with the following command:
+```
+uvicorn main:app --reload
+```
+- The app default to the following url:
+```
+127.0.0.1:8000
+```
+- You can access the documentation of the API at the followings url:
+```
+127.0.0.1:800/docs
+127.0.0.1:800/redoc
+```
+## Listing of the endpoints
+### Wines
+- GET api/wines
+    - Get all the wines from the dataset
+- GET api/wines/{wine_id}
+    - Get a specific wine from the dataset
+- POST api/wines
+    - Add a new wine to the dataset
+- DELETE api/wines/{wine_id}
+    - Delete a specific wine from the dataset
+
+### Model
+- GET api/model
+    - Get the model used to predict the quality of the wine
+- PUT api/model
+    - Update the model used to predict the quality of the wine by adding a new wine to the dataset
+- GET api/model/description
+    - Get various information about the model used to predict the quality of the wine, like the metrics (see below) of the last training, the hyperparameters of the model, and informations related to the model object.
+- POST api/model/retrain
+    - Retrain the model used to predict the quality of the wine, save the model and the metrics of the training
+
+### Predictions
+-GET api/predict
+    - Return the features of the best wine possible based on predefined criteria (see below)
+- POST api/predict
+    - Predict the quality of a given wine using the model
+
+
 
 # TECHNICAL CHOICES
 - Traget transformation: 
