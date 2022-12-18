@@ -79,9 +79,9 @@ uvicorn main:app --reload
     - Retrain the model used to predict the quality of the wine, save the model and the metrics of the training
 
 ### Predictions
--GET api/predict
+- GET api/predict
     - Return the features of the best wine possible based on predefined criteria (see below)
--POST api/predict
+- POST api/predict
     - Predict the quality of a given wine using the model
 
 
